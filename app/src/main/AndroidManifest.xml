@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="my.android.linkup">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="my.android.linkup.InstagramOffline"
+        android:allowBackup="true"
+        android:icon="@mipmap/linkup_logo"
+        android:roundIcon="@mipmap/linkup_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="my.android.linkup.Messages.MessageActivity"
+            android:parentActivityName="my.android.linkup.Messages.ChatActivity" />
+        <activity
+            android:name="my.android.linkup.Messages.ChatActivity"
+            android:parentActivityName="my.android.linkup.Home" />
+        <activity android:name="my.android.linkup.Stories.StoryActivity" />
+        <activity android:name="my.android.linkup.Stories.AddStoryActivity" />
+        <activity android:name="my.android.linkup.Profile.FollowersFollowing" />
+        <activity android:name="my.android.linkup.Search.UserSearchViewPost" />
+        <activity android:name="my.android.linkup.Search.UserSearchProfileActivity" />
+        <activity android:name="my.android.linkup.Profile.ViewComments" />
+        <activity android:name="my.android.linkup.Post.PostActivity" />
+        <activity android:name="my.android.linkup.VerifyPhone" />
+        <activity android:name="my.android.linkup.Registration" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name="my.android.linkup.Login" />
+        <activity android:name="my.android.linkup.Profile.EditProfile" />
+        <activity android:name="my.android.linkup.Profile.Account_Settings" />
+        <activity
+            android:name="my.android.linkup.Home"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="my.android.linkup.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="my.android.linkup.Messages.Notification.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="my.android.linkup.Messages.Notification.MyFirebaseIdService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="TODO">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
