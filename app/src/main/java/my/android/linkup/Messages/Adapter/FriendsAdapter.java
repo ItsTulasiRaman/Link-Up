@@ -74,10 +74,14 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int clickedPosition = holder.getAdapterPosition();
+                if (clickedPosition != RecyclerView.NO_POSITION) {
+                    Users clickedUser = muser.get(clickedPosition);
                 Intent intent = new Intent(mcontext, MessageActivity.class);
-                intent.putExtra("userid",users.getUser_id());
+                intent.putExtra("userid", clickedUser.getUser_id());
                 //Toast.makeText(v.getContext(),users.getUser_id(),Toast.LENGTH_SHORT ).show();
                 mcontext.startActivity(intent);
+            }
             }
         });
 
